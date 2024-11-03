@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonApp.Pages.LoginPage"
+             xmlns:vm="clr-namespace:PersonApp.ViewModels"
+             Title="LoginPage"
+             BackgroundColor="#F5F5F5"
+             BackgroundImageSource="snoopy.jpg">
+
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="20" VerticalOptions="Center" HorizontalOptions="Center" Spacing="15">
+        <Label Text="Iniciar Sesión" 
+               FontSize="24" 
+               HorizontalOptions="Center" 
+               TextColor="#333" 
+               Margin="0,0,0,20" />
+        <Entry Placeholder="Ingresa tu usuario" Text="{Binding Username}" BackgroundColor="#FFFFFF" TextColor="Black" HeightRequest="50"/>
+        <Entry
+        IsPassword="True"
+        Placeholder="Ingresa tu contraseña"
+        Text="{Binding Password}"
+            TextColor="Black"
+           BackgroundColor="#FFFFFF"
+            HeightRequest="50"/>
+        <Button Command="{Binding LoginCommand}" Text="Iniciar Sesión" BackgroundColor="#007AFF" TextColor="Black" Padding="10" CornerRadius="5" HeightRequest="50" />
+    </StackLayout>
+</ContentPage>  

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PersonApp.Pages.PersonPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:PersonApp.ViewModels"
+    Title="MoviesPage">
+
+    <ContentPage.BindingContext>
+        <vm:PersonViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <ListView
+            x:Name="PhotosListView"
+            IsPullToRefreshEnabled="True"
+            ItemsSource="{Binding Results}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10" Orientation="Vertical">
+                            <Image HeightRequest="200" Source="{Binding Picture.medium}" />
+                            <Label FontSize="Medium" Text="{Binding Cell}" />
+                            <Label FontSize="Small" Text="{Binding Email}" />
+                            <Label FontSize="Small" Text="{Binding Name.First}" />
+                            <Label FontSize="Small" Text="{Binding Name.Last}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
